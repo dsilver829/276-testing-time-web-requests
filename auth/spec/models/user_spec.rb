@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'timecop'
 
 describe User do
   describe "#send_password_reset" do
@@ -12,8 +13,11 @@ describe User do
     end
 
     it "saves the time the password reset was sent" do
+      Timecop.freeze
       user.send_password_reset
-      user.reload.password_reset_sent_at.should eq Time.zone.now
+      Time.use_zone("Paris") do
+        user.reload.password_reset_sent_at.to_i.should == Time.zone.now.to_i
+      end
     end
 
     it "delivers email to user" do

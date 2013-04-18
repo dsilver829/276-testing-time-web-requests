@@ -16,8 +16,6 @@ gem 'therubyracer', :platforms => :ruby
 
 gem 'jquery-rails'
 
-gem 'timecop'
-
 gem 'bcrypt-ruby'
 
 # Use unicorn as the web server
@@ -34,4 +32,5 @@ group :test do
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard-rspec"
+  gem 'timecop'
 end
