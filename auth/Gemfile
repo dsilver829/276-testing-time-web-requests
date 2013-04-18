@@ -16,6 +16,10 @@ gem 'therubyracer', :platforms => :ruby
 
 gem 'jquery-rails'
 
+gem 'timecop'
+
+gem 'bcrypt-ruby'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

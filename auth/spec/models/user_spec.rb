@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   describe "#send_password_reset" do
-    let(:user) { Factory(:user) }
+    let(:user) { FactoryGirl.create(:user) }
 
     it "generates a unique password_reset_token each time" do
       user.send_password_reset
@@ -13,7 +13,7 @@ describe User do
 
     it "saves the time the password reset was sent" do
       user.send_password_reset
-      user.reload.password_reset_sent_at.should be_present
+      user.reload.password_reset_sent_at.should eq Time.zone.now
     end
 
     it "delivers email to user" do
